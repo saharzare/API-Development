@@ -10,15 +10,4 @@ This project automates the process of inserting cryptocurrency data into a **Pos
 - Handles errors gracefully with rollback & retries
 - Optimized for batch processing
 
-#### 🛠️ Requirements
-- Python 3.x
-- PostgreSQL
-- Pandas
-- Psycopg2
-
-#### ⚙️ Setup & Usage
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/saharzare/crypto-data-insert-pgsql.git
-   cd crypto-data-insert-pgsql
 
