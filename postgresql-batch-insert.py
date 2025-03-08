@@ -1,10 +1,10 @@
 import pandas as pd
-#extract data with api
+#extract data from website
 import requests
-#connect to database
+#connect to database in python
 import psycopg2
 
-#extract data from api in a json format
+#Extract data from public API in json format
 url='http://api.coincap.io/v2/assets'
 header={'Content-Type':'application/json','Accept-Encoding':'deflate'}
 response=requests.get(url,header)
@@ -18,7 +18,6 @@ connects=psycopg2.connect(dbname='postgres',
                           password='sahar',
                           host='localhost',
                           port='5432')
-
 cur=connects.cursor()
 cur.execute(""" 
     CREATE TABLE IF NOT EXISTS CRYPTOTABLE (
@@ -32,6 +31,7 @@ cur.execute("""
         changePercent24Hr FLOAT
     );
 """)
+
 INSERT_QUERY=""" 
 INSERT INTO CRYPTOTABLE (rank,sym, name, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr)
 VALUES (%s, %s, %s, %s, %s, %s, %s);
